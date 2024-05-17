@@ -49,9 +49,37 @@ int is_valid(Node* n){
 }
 
 
-List* get_adj_nodes(Node* n){
-    List* list=createList();
-    return list;
+List* get_adj_nodes(Node* n)
+{
+   List* list=createList();
+   int fil = -1, col = -1;
+   for (int i = 0; i < 9; i++)
+   {
+      for (int j = 0; j < 9; j++)
+         {
+            if (n->sudo[i][j] == 0)
+            {
+               fil = i;
+               col = j;
+               break;
+            }
+         }
+      if (fil != -1) break;
+      
+   }
+
+   //si no hya casillas vacias, retorna NULL (o en su defecto la lista vacia)
+   if (col == -1) return NULL;
+
+   List* adj_node = createList();
+   for (int val = 1; val <= 9; val++)
+      {
+         Node* new_node = copy(n);
+         new_node->sudo[fil][col] = val;
+         pushBack(adj_node, new_node);
+      }
+   
+   return list;
 }
 
 
