@@ -151,6 +151,16 @@ int is_final(Node* n)
    return 1;
 }
 
+typedef struct StackNode {
+    Node* node;
+    struct StackNode* next;
+} StackNode;
+
+// Estructura de la pila
+typedef struct {
+    StackNode* top;
+} Stack;
+
 Node* pop(Stack* stack) {
     if (is_empty(stack)) {
         return NULL;

@@ -233,3 +233,102 @@ sudoku.c:195:35: error: request for member ‘next’ in something not a structu
       |                                   ^~
 Compilation failed
 4ffe1f3
+Sat 18 May 2024 02:21:21 AM UTC: 
+ sudoku.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+In file included from test.c:5:
+sudoku.c:162:3: error: conflicting types for ‘Stack’; have ‘struct <anonymous>’
+  162 | } Stack;
+      |   ^~~~~
+In file included from test.c:4:
+list.h:8:14: note: previous declaration of ‘Stack’ with type ‘Stack’ {aka ‘List’}
+    8 | typedef List Stack;
+      |              ^~~~~
+In file included from test.c:5:
+sudoku.c:164:7: error: conflicting types for ‘pop’; have ‘Node *(Stack *)’
+  164 | Node* pop(Stack* stack) {
+      |       ^~~
+In file included from test.c:4:
+list.h:31:6: note: previous declaration of ‘pop’ with type ‘void(Stack *)’ {aka ‘void(List *)’}
+   31 | void pop(Stack* s);
+      |      ^~~
+In file included from test.c:5:
+sudoku.c: In function ‘pop’:
+sudoku.c:165:18: error: passing argument 1 of ‘is_empty’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  165 |     if (is_empty(stack)) {
+      |                  ^~~~~
+      |                  |
+      |                  Stack *
+In file included from test.c:4:
+list.h:14:20: note: expected ‘List *’ but argument is of type ‘Stack *’
+   14 | int is_empty(List* list);
+      |              ~~~~~~^~~~
+In file included from test.c:5:
+sudoku.c: In function ‘free_stack’:
+sudoku.c:176:22: error: passing argument 1 of ‘is_empty’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  176 |     while (!is_empty(stack)) {
+      |                      ^~~~~
+      |                      |
+      |                      Stack *
+In file included from test.c:4:
+list.h:14:20: note: expected ‘List *’ but argument is of type ‘Stack *’
+   14 | int is_empty(List* list);
+      |              ~~~~~~^~~~
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:186:19: error: initialization of ‘Stack *’ from incompatible pointer type ‘Stack *’ {aka ‘List *’} [-Werror=incompatible-pointer-types]
+  186 |    Stack* stack = createStack();
+      |                   ^~~~~~~~~~~
+sudoku.c:187:9: error: passing argument 1 of ‘push’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  187 |    push(stack, initial);
+      |         ^~~~~
+      |         |
+      |         Stack *
+In file included from test.c:4:
+list.h:33:18: note: expected ‘Stack *’ {aka ‘List *’} but argument is of type ‘Stack *’
+   33 | void push(Stack* s, void* data);
+      |           ~~~~~~~^
+In file included from test.c:5:
+sudoku.c:189:21: error: passing argument 1 of ‘is_empty’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  189 |    while (!is_empty(stack))
+      |                     ^~~~~
+      |                     |
+      |                     Stack *
+In file included from test.c:4:
+list.h:14:20: note: expected ‘List *’ but argument is of type ‘Stack *’
+   14 | int is_empty(List* list);
+      |              ~~~~~~^~~~
+In file included from test.c:5:
+sudoku.c:200:7: error: unknown type name ‘NodeList’
+  200 |       NodeList* adj_current = adj_nodes->head;
+      |       ^~~~~~~~
+sudoku.c:200:40: error: invalid use of incomplete typedef ‘List’
+  200 |       NodeList* adj_current = adj_nodes->head;
+      |                                        ^~
+sudoku.c:204:33: error: request for member ‘node’ in something not a structure or union
+  204 |          push(stack, adj_current->node);
+      |                                 ^~
+sudoku.c:204:15: error: passing argument 1 of ‘push’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  204 |          push(stack, adj_current->node);
+      |               ^~~~~
+      |               |
+      |               Stack *
+In file included from test.c:4:
+list.h:33:18: note: expected ‘Stack *’ {aka ‘List *’} but argument is of type ‘Stack *’
+   33 | void push(Stack* s, void* data);
+      |           ~~~~~~~^
+In file included from test.c:5:
+sudoku.c:205:35: error: request for member ‘next’ in something not a structure or union
+  205 |          adj_current = adj_current->next;
+      |                                   ^~
+sudoku.c:208:18: error: passing argument 1 of ‘free_stack’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+  208 |       free_stack(adj_nodes);
+      |                  ^~~~~~~~~
+      |                  |
+      |                  List *
+sudoku.c:175:24: note: expected ‘Stack *’ but argument is of type ‘List *’
+  175 | void free_stack(Stack* stack) {
+      |                 ~~~~~~~^~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+10ca174
