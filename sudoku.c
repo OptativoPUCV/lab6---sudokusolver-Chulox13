@@ -152,13 +152,20 @@ int is_final(Node* n)
 }
 
 
+Stack* create_stack() {
+    Stack* stack = (Stack*)malloc(sizeof(Stack));
+    stack->top = NULL;
+    return stack;
+}
+
+
 Node* pop(Stack* stack) {
     if (is_empty(stack)) {
         return NULL;
     }
     Node* popped_node = stack->top->node;
     StackNode* temp = stack->top;
-    stack->top = stack.top->next;
+    stack->top = stack->top->next;
     free(temp);
     return popped_node;
 }

@@ -419,3 +419,54 @@ sudoku.c:196:35: error: request for member ‘next’ in something not a structu
       |                                   ^~
 Compilation failed
 3b9ab89
+Sat 18 May 2024 02:25:18 AM UTC: 
+ sudoku.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘create_stack’:
+sudoku.c:156:42: error: invalid application of ‘sizeof’ to incomplete type ‘Stack’ {aka ‘List’}
+  156 |     Stack* stack = (Stack*)malloc(sizeof(Stack));
+      |                                          ^~~~~
+sudoku.c:157:10: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  157 |     stack->top = NULL;
+      |          ^~
+sudoku.c: At top level:
+sudoku.c:162:7: error: conflicting types for ‘pop’; have ‘Node *(Stack *)’ {aka ‘Node *(List *)’}
+  162 | Node* pop(Stack* stack) {
+      |       ^~~
+In file included from test.c:4:
+list.h:31:6: note: previous declaration of ‘pop’ with type ‘void(Stack *)’ {aka ‘void(List *)’}
+   31 | void pop(Stack* s);
+      |      ^~~
+In file included from test.c:5:
+sudoku.c: In function ‘pop’:
+sudoku.c:166:30: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  166 |     Node* popped_node = stack->top->node;
+      |                              ^~
+sudoku.c:167:5: error: unknown type name ‘StackNode’
+  167 |     StackNode* temp = stack->top;
+      |     ^~~~~~~~~
+sudoku.c:167:28: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  167 |     StackNode* temp = stack->top;
+      |                            ^~
+sudoku.c:168:10: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  168 |     stack->top = stack->top->next;
+      |          ^~
+sudoku.c:168:23: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  168 |     stack->top = stack->top->next;
+      |                       ^~
+sudoku.c: In function ‘DFS’:
+sudoku.c:198:7: error: unknown type name ‘NodeList’
+  198 |       NodeList* adj_current = adj_nodes->head;
+      |       ^~~~~~~~
+sudoku.c:198:40: error: invalid use of incomplete typedef ‘List’
+  198 |       NodeList* adj_current = adj_nodes->head;
+      |                                        ^~
+sudoku.c:202:33: error: request for member ‘node’ in something not a structure or union
+  202 |          push(stack, adj_current->node);
+      |                                 ^~
+sudoku.c:203:35: error: request for member ‘next’ in something not a structure or union
+  203 |          adj_current = adj_current->next;
+      |                                   ^~
+Compilation failed
+d7c793f
