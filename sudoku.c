@@ -139,6 +139,7 @@ List* get_adj_nodes(Node* n)
 }
 
 
+
 int is_final(Node* n)
 {
    for (int i =0; i < 9; i++)
@@ -151,6 +152,15 @@ int is_final(Node* n)
    return 1;
 }
 
+typedef struct StackNode {
+    Node* node;
+    struct StackNode* next;
+} StackNode;
+
+// Estructura de la pila
+typedef struct {
+    StackNode* top;
+} Stack;
 
 Stack* create_stack() {
     Stack* stack = (Stack*)malloc(sizeof(Stack));
