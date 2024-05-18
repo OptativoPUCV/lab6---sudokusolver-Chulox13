@@ -69,17 +69,17 @@ List* get_adj_nodes(Node* n)
    }
 
    //si no hya casillas vacias, retorna NULL (o en su defecto la lista vacia)
-   if (col == -1) return NULL;
+   if (col == -1) return list;
 
    List* adj_node = createList();
-   for (int val = 1; val <= 9; val++)
+   for (int val = 1; val < 9; val++)
       {
          Node* new_node = copy(n);
          new_node->sudo[fil][col] = val;
-         push(adj_node, new_node);
+         pushBack(adj_node, new_node);
       }
    
-   return list;
+   return adj_node;
 }
 
 
