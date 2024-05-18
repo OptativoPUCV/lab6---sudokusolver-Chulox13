@@ -160,7 +160,7 @@ Node* DFS(Node* initial, int* cont)
    {
       (*cont)++;     
 
-      Node* current = list_pop(stack);
+      Node* current = popFront(stack);
       if (is_final(current))
       {
          free_stack(stack);
