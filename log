@@ -569,3 +569,29 @@ sudoku.c:183:24: note: expected ‘Stack *’ but argument is of type ‘List *�
 cc1: all warnings being treated as errors
 Compilation failed
 22f3e8f
+Sat 18 May 2024 02:27:27 AM UTC: 
+ sudoku.c | 37 -------------------------------------
+ 1 file changed, 37 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:163:23: error: void value not ignored as it ought to be
+  163 |       Node* current = pop(stack);
+      |                       ^~~
+sudoku.c:166:10: error: implicit declaration of function ‘free_stack’ [-Werror=implicit-function-declaration]
+  166 |          free_stack(stack);
+      |          ^~~~~~~~~~
+sudoku.c:170:7: error: unknown type name ‘NodeList’
+  170 |       NodeList* adj_current = adj_nodes->head;
+      |       ^~~~~~~~
+sudoku.c:170:40: error: invalid use of incomplete typedef ‘List’
+  170 |       NodeList* adj_current = adj_nodes->head;
+      |                                        ^~
+sudoku.c:174:33: error: request for member ‘node’ in something not a structure or union
+  174 |          push(stack, adj_current->node);
+      |                                 ^~
+sudoku.c:175:35: error: request for member ‘next’ in something not a structure or union
+  175 |          adj_current = adj_current->next;
+      |                                   ^~
+cc1: all warnings being treated as errors
+Compilation failed
+e1dc25d

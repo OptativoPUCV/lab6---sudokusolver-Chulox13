@@ -139,7 +139,6 @@ List* get_adj_nodes(Node* n)
 }
 
 
-
 int is_final(Node* n)
 {
    for (int i =0; i < 9; i++)
@@ -151,43 +150,6 @@ int is_final(Node* n)
    }
    return 1;
 }
-
-typedef struct StackNode {
-    Node* node;
-    struct StackNode* next;
-} StackNode;
-
-// Estructura de la pila
-typedef struct {
-    StackNode* top;
-} Stack;
-
-Stack* create_stack() {
-    Stack* stack = (Stack*)malloc(sizeof(Stack));
-    stack->top = NULL;
-    return stack;
-}
-
-
-Node* pop(Stack* stack) {
-    if (is_empty(stack)) {
-        return NULL;
-    }
-    Node* popped_node = stack->top->node;
-    StackNode* temp = stack->top;
-    stack->top = stack->top->next;
-    free(temp);
-    return popped_node;
-}
-
-void free_stack(Stack* stack) {
-    while (!is_empty(stack)) {
-        pop(stack);
-    }
-    free(stack);
-}
-
-
 
 Node* DFS(Node* initial, int* cont)
 {
