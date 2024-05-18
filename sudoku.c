@@ -178,7 +178,7 @@ Node* DFS(Node* initial, int* cont)
       }
 
       List* adj_nodes = get_adj_nodes(current);
-      List* adj_current = 
+      Lista* adj_current = 
       
    }
    
