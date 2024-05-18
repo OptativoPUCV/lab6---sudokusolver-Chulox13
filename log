@@ -38,3 +38,38 @@ Sat 18 May 2024 02:01:13 AM UTC:
  tests:  7|1
 total_score: 55/70
 a1028d8
+Sat 18 May 2024 02:16:49 AM UTC: 
+ sudoku.c | 30 +++++++++++++++++++++++++++++-
+ 1 file changed, 29 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:156:19: error: implicit declaration of function ‘create_stack’; did you mean ‘createStack’? [-Werror=implicit-function-declaration]
+  156 |    Stack* stack = create_stack();
+      |                   ^~~~~~~~~~~~
+      |                   createStack
+sudoku.c:156:19: error: initialization of ‘Stack *’ {aka ‘List *’} from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+sudoku.c:157:16: error: ‘n’ undeclared (first use in this function)
+  157 |    push(stack, n);
+      |                ^
+sudoku.c:157:16: note: each undeclared identifier is reported only once for each function it appears in
+sudoku.c:163:23: error: void value not ignored as it ought to be
+  163 |       Node* current = pop(stack);
+      |                       ^~~
+sudoku.c:166:10: error: implicit declaration of function ‘free_stack’ [-Werror=implicit-function-declaration]
+  166 |          free_stack(stack);
+      |          ^~~~~~~~~~
+sudoku.c:170:7: error: unknown type name ‘NodeList’
+  170 |       NodeList* adj_current = adj_nodes->head;
+      |       ^~~~~~~~
+sudoku.c:170:40: error: invalid use of incomplete typedef ‘List’
+  170 |       NodeList* adj_current = adj_nodes->head;
+      |                                        ^~
+sudoku.c:174:33: error: request for member ‘node’ in something not a structure or union
+  174 |          push(stack, adj_current->node);
+      |                                 ^~
+sudoku.c:175:35: error: request for member ‘next’ in something not a structure or union
+  175 |          adj_current = adj_current->next;
+      |                                   ^~
+cc1: all warnings being treated as errors
+Compilation failed
+de9b3d9
