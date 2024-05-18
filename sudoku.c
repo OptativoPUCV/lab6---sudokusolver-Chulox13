@@ -43,9 +43,62 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n){
+int is_valid(Node* n)
+{
+   int fil[10], col[10], subMatrix[10];
+   
+   //verificar filas
+   for (int i = 0; i < 9; i++)
+   {
+      for (int k = 0; k < 10; k++) fil[k] = 0;
 
-    return 1;
+      for (int j = 0; j < 9; j++)
+      {
+         int num = n->sudo[i][j];
+         if (num != 0)
+         {
+            if (fil[num] == 1) return 0;
+            fil[num] = 1;
+         }
+      }
+   }
+   
+   //verificar columanas
+   for (int j = 0; j<9; j++)
+   {
+      for (int k = 0; k < 10; k++) col[k] = 0;
+
+      for (int k = 0; k < 9; k++)
+      {
+         int num = n->sudo[k][j];
+         if (num != 0)
+         {
+            if (col[num] == 1) return 0;
+            col[num] = 1;
+         }
+      }
+   }
+
+   //verificar submatrices 3x3
+   for (int k = 0; k < 9; k++) 
+   {
+   
+      for (int m = 0; m < 10; m++) subMatrix[m] = 0;
+
+      for (int p = 0; p<9; p++)
+      {
+         int i = 3 * (k / 3) + (p % 3) ;
+         int j = 3 * (k % 3) + (p / 3) ;
+         int num = n->sudo[i][j];
+         if (num != 0)
+         {
+            if (subMatrix[num] == 1) return 0;
+            subMatrix[num] = 1;
+         }
+      } 
+   }
+   
+   return 1;
 }
 
 
