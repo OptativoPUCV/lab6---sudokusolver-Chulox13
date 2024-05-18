@@ -167,7 +167,7 @@ Node* DFS(Node* initial, int* cont)
          return current;
       }
       List* adj_nodes = get_adj_nodes(current);
-      NodeList* adj_current = adj_nodes->head;
+      NodeList* adj_current = adj_nodes.head;
 
       while (adj_current != NULL)
       {
