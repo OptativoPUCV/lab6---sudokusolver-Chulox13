@@ -648,3 +648,14 @@ sudoku.c:175:35: error: request for member ‘next’ in something not a structu
 cc1: all warnings being treated as errors
 Compilation failed
 d49b84a
+Sat 18 May 2024 02:30:23 AM UTC: 
+ sudoku.c | 25 -------------------------
+ 1 file changed, 25 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:156:11: error: unused variable ‘stack’ [-Werror=unused-variable]
+  156 |    Stack* stack = createStack();
+      |           ^~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+bf9cb4f
