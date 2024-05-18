@@ -159,6 +159,31 @@ int is_final(Node* n)
 Node* DFS(Node* initial, int* cont)
 {
    //hoall
+
+   Stack* stack = create_stack();
+    push(stack, initial);
+
+    while (!is_empty(stack)) {
+        (*cont)++;
+
+        Node* current = pop(stack);
+        if (is_final(current)) {
+            free_stack(stack);
+            return current;
+        }
+
+        List* adj_nodes = get_adj_nodes(current);
+        Node* adj_current = adj_nodes->first;
+        while (adj_current != NULL) {
+            push(stack, (Node*)adj_current->data);
+            adj_current = adj_current->next;
+        }
+
+        free_list(adj_nodes); // Libera la memoria de la lista de nodos adyacentes
+        free(current); // Libera la memoria del nodo actual
+    }
+
+    free_stack(stack);
    
    return NULL;
 }

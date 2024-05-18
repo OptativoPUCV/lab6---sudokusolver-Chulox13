@@ -1703,3 +1703,34 @@ Sat 18 May 2024 09:30:12 PM UTC:
  tests:  7|1
 total_score: 55/70
 6ffa468
+Sat 18 May 2024 09:35:33 PM UTC: 
+ sudoku.c | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:163:19: error: implicit declaration of function ‘create_stack’; did you mean ‘createStack’? [-Werror=implicit-function-declaration]
+  163 |    Stack* stack = create_stack();
+      |                   ^~~~~~~~~~~~
+      |                   createStack
+sudoku.c:163:19: error: initialization of ‘Stack *’ {aka ‘List *’} from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+sudoku.c:169:25: error: void value not ignored as it ought to be
+  169 |         Node* current = pop(stack);
+      |                         ^~~
+sudoku.c:171:13: error: implicit declaration of function ‘free_stack’ [-Werror=implicit-function-declaration]
+  171 |             free_stack(stack);
+      |             ^~~~~~~~~~
+sudoku.c:176:38: error: invalid use of incomplete typedef ‘List’
+  176 |         Node* adj_current = adj_nodes->first;
+      |                                      ^~
+sudoku.c:178:43: error: ‘Node’ has no member named ‘data’
+  178 |             push(stack, (Node*)adj_current->data);
+      |                                           ^~
+sudoku.c:179:38: error: ‘Node’ has no member named ‘next’
+  179 |             adj_current = adj_current->next;
+      |                                      ^~
+sudoku.c:182:9: error: implicit declaration of function ‘free_list’ [-Werror=implicit-function-declaration]
+  182 |         free_list(adj_nodes); // Libera la memoria de la lista de nodos adyacentes
+      |         ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+7c195d4
