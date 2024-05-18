@@ -151,6 +151,26 @@ int is_final(Node* n)
    return 1;
 }
 
+Node* pop(Stack* stack) {
+    if (is_empty(stack)) {
+        return NULL;
+    }
+    Node* popped_node = stack->top->node;
+    StackNode* temp = stack->top;
+    stack->top = stack->top->next;
+    free(temp);
+    return popped_node;
+}
+
+void free_stack(Stack* stack) {
+    while (!is_empty(stack)) {
+        pop(stack);
+    }
+    free(stack);
+}
+
+
+
 Node* DFS(Node* initial, int* cont)
 {
    Stack* stack = createStack();
