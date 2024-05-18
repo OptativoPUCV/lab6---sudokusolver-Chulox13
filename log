@@ -375,3 +375,47 @@ sudoku.c:196:35: error: request for member ‘next’ in something not a structu
       |                                   ^~
 Compilation failed
 feaa08f
+Sat 18 May 2024 02:23:03 AM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c:155:7: error: conflicting types for ‘pop’; have ‘Node *(Stack *)’ {aka ‘Node *(List *)’}
+  155 | Node* pop(Stack* stack) {
+      |       ^~~
+In file included from test.c:4:
+list.h:31:6: note: previous declaration of ‘pop’ with type ‘void(Stack *)’ {aka ‘void(List *)’}
+   31 | void pop(Stack* s);
+      |      ^~~
+In file included from test.c:5:
+sudoku.c: In function ‘pop’:
+sudoku.c:159:30: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  159 |     Node* popped_node = stack->top->node;
+      |                              ^~
+sudoku.c:160:5: error: unknown type name ‘StackNode’
+  160 |     StackNode* temp = stack->top;
+      |     ^~~~~~~~~
+sudoku.c:160:28: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  160 |     StackNode* temp = stack->top;
+      |                            ^~
+sudoku.c:161:10: error: invalid use of incomplete typedef ‘Stack’ {aka ‘List’}
+  161 |     stack->top = stack.top->next;
+      |          ^~
+sudoku.c:161:23: error: ‘stack’ is a pointer; did you mean to use ‘->’?
+  161 |     stack->top = stack.top->next;
+      |                       ^
+      |                       ->
+sudoku.c: In function ‘DFS’:
+sudoku.c:191:7: error: unknown type name ‘NodeList’
+  191 |       NodeList* adj_current = adj_nodes->head;
+      |       ^~~~~~~~
+sudoku.c:191:40: error: invalid use of incomplete typedef ‘List’
+  191 |       NodeList* adj_current = adj_nodes->head;
+      |                                        ^~
+sudoku.c:195:33: error: request for member ‘node’ in something not a structure or union
+  195 |          push(stack, adj_current->node);
+      |                                 ^~
+sudoku.c:196:35: error: request for member ‘next’ in something not a structure or union
+  196 |          adj_current = adj_current->next;
+      |                                   ^~
+Compilation failed
+3b9ab89

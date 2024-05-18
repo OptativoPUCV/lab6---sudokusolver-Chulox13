@@ -158,7 +158,7 @@ Node* pop(Stack* stack) {
     }
     Node* popped_node = stack->top->node;
     StackNode* temp = stack->top;
-    stack->top = stack->top->next;
+    stack->top = stack.top->next;
     free(temp);
     return popped_node;
 }
