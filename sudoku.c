@@ -153,7 +153,7 @@ int is_final(Node* n)
 
 Node* DFS(Node* initial, int* cont)
 {
-   Stack* stack = create_stack();
+   Stack* stack = createStack();
    push(stack, n);
 
    while (!is_empty(stack))
