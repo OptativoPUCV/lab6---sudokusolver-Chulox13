@@ -1231,3 +1231,238 @@ list.c:178:11: error: unknown type name ‘Stack’
       |           ^~~~~
 Compilation failed
 2243bae
+Sat 18 May 2024 09:26:32 PM UTC: 
+ sudoku.c | 17 +----------------
+ 1 file changed, 1 insertion(+), 16 deletions(-)
+In file included from test.c:4:
+list.h:19:13: error: unknown type name ‘List’; did you mean ‘Lista’?
+   19 | void* front(List* list);
+      |             ^~~~
+      |             Lista
+list.h:20:13: error: unknown type name ‘List’; did you mean ‘Lista’?
+   20 | void* first(List* list);
+      |             ^~~~
+      |             Lista
+list.h:21:12: error: unknown type name ‘List’; did you mean ‘Lista’?
+   21 | void* next(List* list);
+      |            ^~~~
+      |            Lista
+list.h:22:12: error: unknown type name ‘List’; did you mean ‘Lista’?
+   22 | void* last(List* list);
+      |            ^~~~
+      |            Lista
+list.h:26:16: error: unknown type name ‘List’; did you mean ‘Lista’?
+   26 | void pushFront(List* list, void* data);
+      |                ^~~~
+      |                Lista
+list.h:27:15: error: unknown type name ‘List’; did you mean ‘Lista’?
+   27 | void pushBack(List* list, void* data);
+      |               ^~~~
+      |               Lista
+list.h:28:18: error: unknown type name ‘List’; did you mean ‘Lista’?
+   28 | void pushCurrent(List* list, void* data);
+      |                  ^~~~
+      |                  Lista
+list.h:37:10: error: unknown type name ‘Stack’
+   37 | void pop(Stack* s);
+      |          ^~~~~
+list.h:38:11: error: unknown type name ‘Stack’
+   38 | void* top(Stack* s);
+      |           ^~~~~
+list.h:39:11: error: unknown type name ‘Stack’
+   39 | void push(Stack* s, void* data);
+      |           ^~~~~
+In file included from test.c:5:
+sudoku.c:105:1: error: unknown type name ‘List’; did you mean ‘Lista’?
+  105 | List* get_adj_nodes(Node* n)
+      | ^~~~
+      | Lista
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:107:4: error: unknown type name ‘List’; did you mean ‘Lista’?
+  107 |    List* list=createList();
+      |    ^~~~
+      |    Lista
+sudoku.c:107:15: error: implicit declaration of function ‘createList’; did you mean ‘crearLista’? [-Werror=implicit-function-declaration]
+  107 |    List* list=createList();
+      |               ^~~~~~~~~~
+      |               crearLista
+sudoku.c:107:15: error: initialization of ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+sudoku.c:127:4: error: unknown type name ‘List’; did you mean ‘Lista’?
+  127 |    List* adj_node = createList();
+      |    ^~~~
+      |    Lista
+sudoku.c:127:21: error: initialization of ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  127 |    List* adj_node = createList();
+      |                     ^~~~~~~~~~
+sudoku.c:133:13: error: implicit declaration of function ‘pushBack’ [-Werror=implicit-function-declaration]
+  133 |             pushBack(adj_node, new_node);
+      |             ^~~~~~~~
+sudoku.c: At top level:
+sudoku.c:156:18: error: unknown type name ‘Stack’
+  156 | void free_satck( Stack* stack)
+      |                  ^~~~~
+test.c: In function ‘adj_test1’:
+test.c:62:5: error: unknown type name ‘List’; did you mean ‘Lista’?
+   62 |     List* adj = get_adj_nodes(initial);
+      |     ^~~~
+      |     Lista
+test.c:64:23: error: implicit declaration of function ‘is_empty’ [-Werror=implicit-function-declaration]
+   64 |     if(adj == NULL || is_empty(adj)==1){
+      |                       ^~~~~~~~
+test.c:69:17: error: implicit declaration of function ‘first’ [-Werror=implicit-function-declaration]
+   69 |     Node* aux = first(adj);
+      |                 ^~~~~
+test.c:69:17: error: initialization of ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+test.c:70:18: error: implicit declaration of function ‘next’ [-Werror=implicit-function-declaration]
+   70 |     Node* aux2 = next(adj);
+      |                  ^~~~
+test.c:70:18: error: initialization of ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+test.c: In function ‘test_mod_adj’:
+test.c:155:5: error: unknown type name ‘List’; did you mean ‘Lista’?
+  155 |     List* adj = get_adj_nodes(initial);
+      |     ^~~~
+      |     Lista
+test.c:163:18: error: initialization of ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  163 |     Node* aux1 = first(adj);
+      |                  ^~~~~
+test.c:164:18: error: initialization of ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  164 |     Node* aux2 = next(adj);
+      |                  ^~~~
+test.c:165:18: error: initialization of ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  165 |     Node* aux3 = next(adj);
+      |                  ^~~~
+cc1: all warnings being treated as errors
+In file included from list.c:4:
+list.h:19:13: error: unknown type name ‘List’; did you mean ‘Lista’?
+   19 | void* front(List* list);
+      |             ^~~~
+      |             Lista
+list.h:20:13: error: unknown type name ‘List’; did you mean ‘Lista’?
+   20 | void* first(List* list);
+      |             ^~~~
+      |             Lista
+list.h:21:12: error: unknown type name ‘List’; did you mean ‘Lista’?
+   21 | void* next(List* list);
+      |            ^~~~
+      |            Lista
+list.h:22:12: error: unknown type name ‘List’; did you mean ‘Lista’?
+   22 | void* last(List* list);
+      |            ^~~~
+      |            Lista
+list.h:26:16: error: unknown type name ‘List’; did you mean ‘Lista’?
+   26 | void pushFront(List* list, void* data);
+      |                ^~~~
+      |                Lista
+list.h:27:15: error: unknown type name ‘List’; did you mean ‘Lista’?
+   27 | void pushBack(List* list, void* data);
+      |               ^~~~
+      |               Lista
+list.h:28:18: error: unknown type name ‘List’; did you mean ‘Lista’?
+   28 | void pushCurrent(List* list, void* data);
+      |                  ^~~~
+      |                  Lista
+list.h:37:10: error: unknown type name ‘Stack’
+   37 | void pop(Stack* s);
+      |          ^~~~~
+list.h:38:11: error: unknown type name ‘Stack’
+   38 | void* top(Stack* s);
+      |           ^~~~~
+list.h:39:11: error: unknown type name ‘Stack’
+   39 | void push(Stack* s, void* data);
+      |           ^~~~~
+list.c:19:14: error: unknown type name ‘List’; did you mean ‘Lista’?
+   19 | int get_size(List* list){
+      |              ^~~~
+      |              Lista
+list.c:23:12: error: unknown type name ‘List’; did you mean ‘Lista’?
+   23 | void clean(List* list){
+      |            ^~~~
+      |            Lista
+list.c:28:1: error: unknown type name ‘List’; use ‘struct’ keyword to refer to the type
+   28 | List* createList(){
+      | ^~~~
+      | struct 
+list.c: In function ‘createList’:
+list.c:29:4: error: unknown type name ‘List’; use ‘struct’ keyword to refer to the type
+   29 |    List* list=(List*) malloc(sizeof(List));
+      |    ^~~~
+      |    struct 
+list.c:29:16: error: ‘List’ undeclared (first use in this function)
+   29 |    List* list=(List*) malloc(sizeof(List));
+      |                ^~~~
+list.c:29:16: note: each undeclared identifier is reported only once for each function it appears in
+list.c:29:21: error: expected expression before ‘)’ token
+   29 |    List* list=(List*) malloc(sizeof(List));
+      |                     ^
+list.c:30:9: error: request for member ‘first’ in something not a structure or union
+   30 |    list -> first = NULL;
+      |         ^~
+list.c:31:9: error: request for member ‘last’ in something not a structure or union
+   31 |    list -> last = NULL;
+      |         ^~
+list.c:32:9: error: request for member ‘size’ in something not a structure or union
+   32 |    list -> size = 0;
+      |         ^~
+list.c: At top level:
+list.c:36:1: error: unknown type name ‘Stack’
+   36 | Stack* createStack(){
+      | ^~~~~
+list.c:49:14: error: unknown type name ‘List’; did you mean ‘Lista’?
+   49 | int is_empty(List* list){
+      |              ^~~~
+      |              Lista
+list.c:53:15: error: unknown type name ‘List’; did you mean ‘Lista’?
+   53 | void popFront(List* list){
+      |               ^~~~
+      |               Lista
+list.c:64:14: error: unknown type name ‘List’; did you mean ‘Lista’?
+   64 | void popBack(List* list){
+      |              ^~~~
+      |              Lista
+list.c:75:16: error: unknown type name ‘List’; did you mean ‘Lista’?
+   75 | void pushFront(List* list, void* data){
+      |                ^~~~
+      |                Lista
+list.c:88:15: error: unknown type name ‘List’; did you mean ‘Lista’?
+   88 | void pushBack(List* list, void* data){
+      |               ^~~~
+      |               Lista
+list.c:101:18: error: unknown type name ‘List’; did you mean ‘Lista’?
+  101 | void pushCurrent(List* list, void* data){
+      |                  ^~~~
+      |                  Lista
+list.c:115:17: error: unknown type name ‘List’; did you mean ‘Lista’?
+  115 | void popCurrent(List* list){
+      |                 ^~~~
+      |                 Lista
+list.c:127:10: error: unknown type name ‘Stack’
+  127 | void pop(Stack* s){
+      |          ^~~~~
+list.c:132:13: error: unknown type name ‘List’; did you mean ‘Lista’?
+  132 | void* front(List* list){
+      |             ^~~~
+      |             Lista
+list.c:144:13: error: unknown type name ‘List’; did you mean ‘Lista’?
+  144 | void* first(List* list){
+      |             ^~~~
+      |             Lista
+list.c:148:12: error: unknown type name ‘List’; did you mean ‘Lista’?
+  148 | void* next(List* list){
+      |            ^~~~
+      |            Lista
+list.c:156:12: error: unknown type name ‘List’; did you mean ‘Lista’?
+  156 | void* last(List* list){
+      |            ^~~~
+      |            Lista
+list.c:164:11: error: unknown type name ‘Stack’
+  164 | void* top(Stack* s){
+      |           ^~~~~
+list.c:168:12: error: unknown type name ‘List’; did you mean ‘Lista’?
+  168 | void* prev(List* list){
+      |            ^~~~
+      |            Lista
+list.c:178:11: error: unknown type name ‘Stack’
+  178 | void push(Stack* s, void* data){
+      |           ^~~~~
+Compilation failed
+8b9f810

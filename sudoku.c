@@ -159,28 +159,13 @@ void free_satck( Stack* stack)
    {
       pop(stack);         
    }
-   free(stack);
+   free(s)
 }
 
 
 Node* DFS(Node* initial, int* cont)
 {
-   Stack* stack = createStack();
-   push(stack, initial);
-   while (!is_empty(stack))
-   {
-      (*cont)++;
-      Node* current = top(stack);
-      if (is_final(current))
-      {
-         free_satck(stack);
-         return current;
-      }
-
-      List* adj_nodes = get_adj_nodes(current);
-      Lista* adj_current = 
-      
-   }
+   
    
    return NULL;
 }
