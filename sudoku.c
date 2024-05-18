@@ -153,14 +153,7 @@ int is_final(Node* n)
 
 
 
-void free_satck( Stack* stack)
-{
-   while (!is_empty(stack))
-   {
-      pop(stack);         
-   }
-   free(s)
-}
+
 
 
 Node* DFS(Node* initial, int* cont)
